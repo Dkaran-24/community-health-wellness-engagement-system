@@ -168,33 +168,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <textarea name="address"><?= e($_POST['address'] ?? '') ?></textarea>
         </div>
       </div>
-
-      <!-- Member portal login credentials -->
-      <div class="form-field full" style="background:#f7f9fc;padding:16px;border-radius:10px;border:1px solid var(--line);margin-top:8px;">
-        <h3 style="margin:0 0 4px;font-size:15px;color:var(--navy-800);">Member Portal Login Credentials</h3>
-        <span class="hint" style="display:block;margin-bottom:14px;">Set the username and password this member will use to sign in to the Member Portal. The password is stored securely as a bcrypt hash.</span>
-        <div class="form-grid" style="margin:0;">
-          <div class="form-field">
-            <label>Username <span class="req">*</span></label>
-            <input type="text" name="username" required minlength="3" maxlength="60"
-                   pattern="[A-Za-z0-9._\-]+" title="Letters, numbers, dots, underscores and hyphens only."
-                   value="<?= e($_POST['username'] ?? '') ?>" placeholder="e.g. john.carter"
-                   autocomplete="off">
-            <span class="hint">3–60 chars. Letters, numbers, dot, underscore, hyphen. Must be unique.</span>
-          </div>
-          <div class="form-field">
-            <label>Password <span class="req">*</span></label>
-            <input type="password" name="password" required minlength="6" placeholder="At least 6 characters" autocomplete="new-password">
-            <span class="hint">Minimum 6 characters. Stored as a secure bcrypt hash.</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-actions">
-        <button type="submit" class="btn btn-primary">&#10003; Save Member</button>
-        <a href="index.php" class="btn btn-ghost">Cancel</a>
-      </div>
-    </form>
-  </div>
-</div>
-<?php require_once __DIR__ . '/../../includes/footer.php'; ?>

@@ -78,32 +78,6 @@ $impact = [
      learn from wellness resources, share your feedback and volunteer to help your neighbourhood stay healthy.</p>
 </div>
 
-<!-- ================= AI RECOMMENDATION PANEL ================= -->
-<?php if ($recs): ?>
-<div class="c-ai-panel">
-  <h3>&#129302; Recommended For You <span class="c-ai-tag">RECOMMENDATION ENGINE — RULE-BASED PROTOTYPE</span></h3>
-  <div class="c-ai-sub">
-    Suggestions generated from your profile (level: <b><?= e($user['fitness_level']) ?></b>,
-    goal: <b><?= e($user['fitness_goal']) ?></b>, preferences: <b><?= e($user['preferred_activities'] ?: 'Any') ?></b>)
-    and your past participation. This is a transparent rule-based prototype — not a trained ML model. See Resources &rarr; AI Documentation.
-  </div>
-  <div class="c-grid" style="gap:10px;">
-    <?php foreach ($recs as $i => $r): ?>
-      <div class="c-ai-rec">
-        <span class="rank"><?= $i + 1 ?></span>
-        <div>
-          <div class="ttl"><?= e($r['item']['name']) ?>
-            <span class="c-badge steel"><?= e($r['item']['category']) ?></span>
-          </div>
-          <div class="why"><?= e($r['reason']) ?></div>
-        </div>
-        <span class="score"><?= number_format($r['score'], 0) ?>/100</span>
-        <a class="c-btn gold sm" href="<?= $base ?>/community/<?= $r['type'] === 'event' ? 'events.php' : 'challenges.php' ?>">View</a>
-      </div>
-    <?php endforeach; ?>
-  </div>
-</div>
-<?php endif; ?>
 
 <!-- ================= MY SNAPSHOT ================= -->
 <div class="c-grid cols-4" style="margin-bottom:22px;">

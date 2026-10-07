@@ -1,4 +1,4 @@
-<?php
+  <?php
 /**
  * login.php — branded admin login for New Life Fitness Club.
  */
@@ -74,7 +74,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <button type="submit" class="btn btn-primary">Sign In &rarr;</button>
     </form>
     <div style="margin-top:18px; font-size:13px;">
-      <a href="<?= $base ?>/member/login.php">Member Portal Login &rarr;</a>
     </div>
   </div>
   <script src="<?= $base ?>/assets/js/main.js"></script>

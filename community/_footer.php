@@ -16,7 +16,6 @@ $base = community_base_url();
     <a href="<?= $base ?>/community/challenges.php">Challenges</a> &middot;
     <a href="<?= $base ?>/community/resources.php">Resources</a> &middot;
     <a href="<?= $base ?>/login.php">Admin</a> &middot;
-    <a href="<?= $base ?>/member/login.php">Member Portal</a>
   </div>
   <div class="c-muted">&copy; <?= date('Y') ?> New Life Fitness — Community Engagement Project (CEP)</div>
 </footer>

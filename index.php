@@ -396,7 +396,6 @@ $chalIcons = ['Walking' => '&#128694;', 'Running' => '&#127939;', 'Yoga' => '&#1
         <h4>Community</h4>
         <a href="<?= $base ?>/community/login.php">Community Login</a>
         <a href="<?= $base ?>/community/register.php">Register Free</a>
-        <a href="<?= $base ?>/member/login.php">Gym Member Portal</a>
         <a href="<?= $base ?>/login.php">Admin Login</a>
       </div>
       <div>
