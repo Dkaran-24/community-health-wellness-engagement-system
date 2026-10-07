@@ -1,0 +1,68 @@
+/*
+ * community-admin.css — styles for the Community Engagement admin modules
+ * (admin/community/*). Loaded only on those pages, after style.css.
+ * "Evergreen" design system — forest green + mint + amber.
+ */
+
+/* ---- Section tabs ---- */
+.comm-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px 0; }
+.comm-tabs a {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 8px 15px; border-radius: 999px;
+  background: #fff; border: 1px solid var(--line);
+  color: var(--muted); font-size: 13px; font-weight: 600;
+  text-decoration: none; transition: all .16s;
+}
+.comm-tabs a span { font-size: 13px; }
+.comm-tabs a:hover { border-color: var(--steel); color: var(--navy-700); background: #F4FAF7; }
+.comm-tabs a.on {
+  background: var(--navy-700); border-color: var(--navy-700); color: #fff;
+  box-shadow: 0 3px 12px rgba(14,59,46,.28);
+}
+.comm-tabs a.on span { color: var(--gold-lt); }
+
+/* ---- Status pipeline timeline (requests workflow) ---- */
+.comm-pipeline { display: flex; flex-wrap: wrap; gap: 10px; margin: 4px 0 18px 0; align-items: center; }
+.comm-pipeline .pl-step {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; border: 1px solid var(--line);
+  border-radius: 10px; padding: 6px 12px; font-size: 12.5px;
+  color: var(--muted); font-weight: 600;
+}
+.comm-pipeline .pl-step.done { border-color: #B7E3C9; background: #E3F4EA; color: #1F7A44; }
+.comm-pipeline .pl-step.now  { border-color: var(--gold); background: #FDF3E0; color: #9A7B16; }
+.comm-pipeline .pl-arrow { color: #B6C9C0; font-size: 13px; }
+
+/* ---- Simple horizontal bar chart (no JS dependency) ---- */
+.comm-bars { display: grid; gap: 10px; }
+.comm-bars .bar-row { display: grid; grid-template-columns: 170px 1fr 46px; align-items: center; gap: 10px; font-size: 13px; }
+.comm-bars .bar-row .lbl { color: var(--ink); font-weight: 600; text-align: right; }
+.comm-bars .bar-row .track { background: #E7F0EA; border-radius: 999px; height: 14px; overflow: hidden; }
+.comm-bars .bar-row .fill { background: linear-gradient(90deg, var(--steel), var(--navy-600)); height: 100%; border-radius: 999px; min-width: 2px; }
+.comm-bars .bar-row .val { color: var(--muted); font-weight: 700; }
+
+/* ---- Rating stars / sentiment chips in feedback ---- */
+.comm-stars { color: var(--gold-dk); letter-spacing: 2px; font-size: 14px; }
+.comm-senti { font-weight: 700; font-size: 12.5px; }
+.comm-senti.pos { color: #1F7A44; }
+.comm-senti.neu { color: #3F6F5A; }
+.comm-senti.neg { color: #A52A2A; }
+
+/* ---- Application detail panel ---- */
+.comm-app-card { border-left: 4px solid var(--gold); }
+
+/* ---- Capacity bar (events table) ---- */
+.comm-cap { display: flex; align-items: center; gap: 8px; min-width: 120px; }
+.comm-cap .track { background: #E7F0EA; height: 10px; border-radius: 999px; flex: 1; overflow: hidden; }
+.comm-cap .fill  { background: linear-gradient(90deg, var(--gold), var(--gold-dk)); height: 100%; border-radius: 999px; }
+.comm-cap .txt   { font-size: 12px; color: var(--muted); font-weight: 700; }
+
+/* ---- Compact inline form rows (attendance marking) ---- */
+.comm-mark-row td { background: #F4FAF7; }
+
+/* ---- Small util ---- */
+.comm-note {
+  background: #E8F2EE; border: 1px solid #CFE0D6; color: #2C5A50;
+  border-radius: 11px; padding: 12px 16px; font-size: 13px; margin-bottom: 16px;
+}
+.comm-note b { color: var(--navy-800); }

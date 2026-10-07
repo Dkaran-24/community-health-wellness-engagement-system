@@ -1,0 +1,53 @@
+# =====================================================================
+# New Life Fitness — CEP (Community Engagement Project)
+# Root .htaccess for shared hosting (InfinityFree / 000webhost style)
+# =====================================================================
+
+DirectoryIndex index.php index.html
+
+# ---------------------------------------------------------------------
+# 1. Sensitive FILES: never serve these over HTTP.
+#    - config.local.php holds the CEP database password (you create it)
+#    - *.sql / *.md / *.py / *.sh are project docs & build tooling
+#    - .user.ini is the host PHP config
+#    (Apache deny rules do NOT affect PHP require/include — only web URLs.)
+# ---------------------------------------------------------------------
+<FilesMatch "\.(sql|md|py|sh|ini|log|csv|txt)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+<FilesMatch "^(config\.local\.php|config\.example\.php|db_connect\.php|build_cep_install\.py|\.htaccess)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# ---------------------------------------------------------------------
+# 2. Sensitive DIRECTORIES: the includes/ and docs/ folders are only
+#    ever loaded by PHP (require/include) — they must never be fetched
+#    directly by URL. Matches whether the app is at the domain root or
+#    inside a sub-folder.
+# ---------------------------------------------------------------------
+RedirectMatch 403 (^|/)includes/
+RedirectMatch 403 (^|/)docs/
+RedirectMatch 403 (^|/)tests/
+
+# ---------------------------------------------------------------------
+# 3. Optional hardening
+# ---------------------------------------------------------------------
+Options -Indexes
+ServerSignature Off
+
+# NOTE: diag.php and email-test.php are diagnostic tools for setup.
+# They are safe (no credentials are printed) but you should DELETE them
+# after your deployment is confirmed working. See DEPLOY-CEP.md.
